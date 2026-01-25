@@ -1,7 +1,10 @@
-import React from 'react'
+import HeroSction from "@/components/Common/HomePageComponents/HeroSction";
+import React from "react";
 
 export default function HomePage() {
   return (
-    <div>HomePage</div>
-  )
+    <div>
+      <HeroSction />
+    </div>
+  );
 }
