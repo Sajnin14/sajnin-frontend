@@ -1,7 +1,6 @@
 import React from "react";
 import Container from "@/components/Common/Container";
 import { LetterPullUpText } from "@/components/ui/letter-pull-up-text";
-import { FontWeightText } from "@/components/ui/font-weight-text";
 
 export default function HeroSction() {
   return (
@@ -13,6 +12,11 @@ export default function HeroSction() {
             className="text-blue-600"
           />
         </div>
+         <div>
+           <div className="w-20 h-20 bg-gray-700 rounded-lg translate-x-100">
+              
+           </div>
+         </div>
       </Container>
     </div>
   );
