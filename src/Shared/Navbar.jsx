@@ -100,7 +100,7 @@ export default function Navbar() {
             <div className="flex items-center">
               <div className="rainbow relative z-0 bg-white/15 overflow-hidden p-0.5 flex items-center justify-center rounded-full hover:scale-105 transition duration-300 active:scale-100 cursor-pointer">
                 <button className="px-8 py-3 text-xl text-text rounded-full font-medium bg-card backdrop-blur cursor-pointer">
-                  View Resume
+                  {/* View Resume */}
                 </button>
               </div>
             </div>
