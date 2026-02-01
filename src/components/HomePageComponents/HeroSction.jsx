@@ -28,7 +28,7 @@ export default function HeroSction() {
 
         <motion.div
           initial={{ opacity: 1, x: 600 }}
-          animate={{ opacity: 1, x: 600 }}
+          animate={{ opacity: 1, x: 1200 }}
           transition={{
             delay: 0.5, // ⏱ stays centered for 1 second
             duration: 1.2,
