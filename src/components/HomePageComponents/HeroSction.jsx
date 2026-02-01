@@ -1,16 +1,32 @@
 import React, { useEffect, useState } from "react";
 import Container from "@/components/Common/Container";
-import { motion } from "framer-motion";
+import { motion, transform } from "framer-motion";
 import { LetterPullUpText } from "@/components/ui/letter-pull-up-text";
 import BlurScrollText from "../Animations/BlurScrollText";
+import CircularText from "../Animations/CircularText";
 
 export default function HeroSction() {
-  const [isMove, setIsMove] = useState(false);
+  const [scrollY, setScrollY] = useState(0); //for text
+
+  useEffect(() => {
+    const handleText = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleText);
+
+    return () => {
+      window.removeEventListener("scroll", handleText);
+    };
+  }, []);
+
+  const [isMove, setIsMove] = useState(false); //for image movement
   useEffect(() => {
     requestAnimationFrame(() => {
       setIsMove(true);
     });
   }, []);
+
   return (
     <div className="w-full bg-primary">
       <Container>
@@ -19,6 +35,36 @@ export default function HeroSction() {
             text="Welcome to EldoraUI"
             className="text-blue-600"
           /> */}
+          <div
+            data-aos="fade-down"
+            className="mt-10 flex items-center gap-4 text-4xl font-semibold text-white"
+          >
+            <p
+              className={`transition-transform duration-500 ${
+                scrollY > 0 ? "-translate-x-20" : "translate-x-0"
+              }`}
+            >
+              Wolf
+            </p>
+            <p>—</p>
+            <p
+              className={`transition-transform duration-500 ${
+                scrollY > 0 ? "translate-x-20" : "translate-x-0"
+              }`}
+            >
+              Marketing
+            </p>
+          </div>
+          
+          <div>
+            
+            <CircularText
+              text="sajnin*akhter*saima*"
+              onHover="speedUp"
+              spinDuration={20}
+              className="custom-class"
+            />
+          </div>
         </div>
         <div
           className={`w-full transition-transform duration-700 ease-in-out  ${isMove ? "translate-x-11/12" : "translate-x-3/4"} `}
