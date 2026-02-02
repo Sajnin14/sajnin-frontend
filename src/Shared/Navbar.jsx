@@ -1,12 +1,14 @@
 import React from "react";
 import Container from "../components/Common/Container";
 import { NavLink } from "react-router-dom";
+import { path } from 'path';
 
 export default function Navbar() {
   const navLinks = [
     {
       title: "projects",
       id: "projects",
+      path: '/project'
     },
     {
       title: "skills",
@@ -19,6 +21,7 @@ export default function Navbar() {
     {
       title: "about me",
       id: "aboutMe",
+      path: '/about'
     },
     {
       title: "education",
@@ -27,6 +30,7 @@ export default function Navbar() {
     {
       title: "contact",
       id: "contact",
+      path: '/contact'
     },
     {
       title: "certificates",
@@ -51,6 +55,7 @@ export default function Navbar() {
             {navLinks?.map((data, idx) => (
               <button key={idx}>
                 <NavLink
+                  to={data?.path}
                   className={({ isActive }) =>
                     `${navClass} ${isActive ? "" : ""}`
                   }
