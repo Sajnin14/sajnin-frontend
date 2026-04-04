@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Container from "@/components/Common/Container";
-import { motion, transform } from "framer-motion";
 import { LetterPullUpText } from "@/components/ui/letter-pull-up-text";
+import { motion } from "motion/react"
 import BlurScrollText from "../Animations/BlurScrollText";
 import CircularText from "../Animations/CircularText";
 
@@ -37,33 +37,33 @@ export default function HeroSction() {
           /> */}
           <div
             data-aos="fade-down"
-            className="mt-10 flex items-center gap-4 text-4xl font-semibold text-white"
+            className="mt-10 flex items-center gap-4 text-7xl font-bold text-white"
           >
             <p
-              className={`transition-transform duration-500 ${
-                scrollY > 0 ? "-translate-x-20" : "translate-x-0"
-              }`}
+              className={`transition-transform duration-500 ${scrollY > 0 ? "-translate-x-20" : "translate-x-0"
+                }`}
             >
-              Wolf
+              Frontend
             </p>
             <p>—</p>
             <p
-              className={`transition-transform duration-500 ${
-                scrollY > 0 ? "translate-x-20" : "translate-x-0"
-              }`}
+              className={`transition-transform duration-500 ${scrollY > 0 ? "translate-x-20" : "translate-x-0"
+                }`}
             >
-              Marketing
+              Developer
             </p>
           </div>
-          
-          <div>
-            
-            <CircularText
-              text="sajnin*akhter*saima*"
-              onHover="speedUp"
-              spinDuration={20}
-              className="custom-class"
-            />
+
+          <div className="mt-20 w-full relative flex items-start justify-start">
+
+            <div className="w-fit">
+              <CircularText
+                text="sajnin*akhter*saima*"
+                onHover="speedUp"
+                spinDuration={20}
+                className="custom-class"
+              />
+            </div>
           </div>
         </div>
         <div
