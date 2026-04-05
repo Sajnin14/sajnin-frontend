@@ -28,7 +28,7 @@ export default function Navbar() {
       <Container>
 
         <div className='text-border flex items-center justify-between'>
-          <h2 className='text-2xl font-semibold italic'>Sajnin</h2>
+          <h2 className='text-2xl font-semibold italic'>h9x</h2>
 
           <div className='flex items-center gap-7'>
             {

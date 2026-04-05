@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Container from "@/components/Common/Container";
-import { LetterPullUpText } from "@/components/ui/letter-pull-up-text";
-import { motion } from "motion/react"
-import BlurScrollText from "../Animations/BlurScrollText";
+import { motion } from "motion/react";
 import CircularText from "../Animations/CircularText";
 
 export default function HeroSction() {
@@ -28,7 +26,7 @@ export default function HeroSction() {
   }, []);
 
   return (
-    <div className="w-full bg-primary">
+    <div className="w-full bg-primary pt-12 pb-24">
       <Container>
         <div>
           {/* <LetterPullUpText
@@ -40,25 +38,28 @@ export default function HeroSction() {
             className="mt-10 flex items-center gap-4 text-7xl font-bold text-white"
           >
             <p
-              className={`transition-transform duration-500 ${scrollY > 0 ? "-translate-x-20" : "translate-x-0"
-                }`}
+              className={`transition-transform duration-500 ${
+                scrollY > 0 ? "-translate-x-20" : "translate-x-0"
+              }`}
             >
-              Frontend
+              {/* Frontend */} Wolf
             </p>
             <p>—</p>
             <p
-              className={`transition-transform duration-500 ${scrollY > 0 ? "translate-x-20" : "translate-x-0"
-                }`}
+              className={`transition-transform duration-500 ${
+                scrollY > 0 ? "translate-x-20" : "translate-x-0"
+              }`}
             >
-              Developer
+              {/* Developer */} Marketing
             </p>
           </div>
 
+          {/* circular text */}
           <div className="mt-20 w-full relative flex items-start justify-start">
-
             <div className="w-fit">
               <CircularText
-                text="sajnin*akhter*saima*"
+                // text="sajnin*akhter*saima*"
+                text="wolf*marketing*h9x*"
                 onHover="speedUp"
                 spinDuration={20}
                 className="custom-class"
@@ -66,33 +67,26 @@ export default function HeroSction() {
             </div>
           </div>
         </div>
-        <div
-          className={`w-full transition-transform duration-700 ease-in-out  ${isMove ? "translate-x-11/12" : "translate-x-3/4"} `}
+
+        {/* image */}
+        {/* <div
+          className={`w-full transition-transform duration-700 ease-in-out ${isMove ? "translate-x-11/12" : "translate-x-1/4"} `}
         >
           <div className={`w-20 h-20 bg-gray-700 rounded-lg `}></div>
-        </div>
+        </div> */}
 
         <motion.div
-          initial={{ opacity: 1, x: 600 }}
-          animate={{ opacity: 1, x: 1200 }}
+          initial={{ opacity: 1, x: 200 }}
+          animate={{ opacity: 1, x: "100%" }}
           transition={{
             delay: 0.5, // ⏱ stays centered for 1 second
             duration: 1.2,
             ease: [0.22, 1, 0.36, 1], // ✨ ultra-smooth
           }}
-          className="max-w-xl text-left"
+          className="w-full text-left -mt-20"
         >
           <div className={`w-20 h-20 bg-gray-700 rounded-lg `}></div>
         </motion.div>
-
-        <div className="my-100">
-          <BlurScrollText
-            className="w-4/5"
-            text={
-              "By default, Motion will create appropriate transitions for snappy animations based on the type of value being animated.By default, Motion will create appropriate transitions for snappy animations based on the type of value being animatedBy default, Motion will create appropriate transitions for snappy animations based on the type of value being animated"
-            }
-          />
-        </div>
       </Container>
     </div>
   );

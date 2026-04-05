@@ -46,7 +46,7 @@ const BlurScrollText = ({ text, className = "" }) => {
   return (
     <p
       ref={textRef}
-      className={`text-white text-3xl md:text-5xl font-semibold leading-tight ${className}`}
+      className={`text-white text-2xl md:text-4xl font-semibold leading-tight ${className}`}
     >
       {text}
     </p>

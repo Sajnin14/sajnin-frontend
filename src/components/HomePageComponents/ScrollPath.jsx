@@ -63,7 +63,7 @@ const ScrollPath = () => {
         {/* Initial */}
         <div
           className="container initial absolute left-[60%] top-[5%] 
-          w-[500px] h-[500px] p-6 border-2 border-dashed border-gray-400 bg-linear-to-r from-indigo-300 to-indigo-100
+          w-125 h-125 p-6 border-2 border-dashed border-gray-400 bg-linear-to-r from-indigo-300 to-indigo-100
           rounded-lg flex items-center justify-center"
         >
           <div>
