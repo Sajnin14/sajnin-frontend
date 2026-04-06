@@ -19,10 +19,10 @@ const MarqueeRow = ({ text, speed }) => {
       >
         {/* Seamless loop */}
         <span className="flex text-white text-lg font-medium tracking-wide">
-          {text.repeat(5)}
+          {text.repeat(4)}
         </span>
         <span className="flex text-white text-lg font-medium tracking-wide">
-          {text.repeat(5)}
+          {text.repeat(4)}
         </span>
       </motion.div>
     </div>
@@ -31,7 +31,7 @@ const MarqueeRow = ({ text, speed }) => {
 
 export default function TechMarqueeSection() {
   return (
-    <div className="bg-black text-white min-h-screen flex flex-col justify-center px-6">
+    <div className="bg-black text-white min-h-screen flex flex-col justify-center">
       {/* Top Label */}
       <p className="text-gray-500 text-xs tracking-widest mb-10">
         VARIOUS TECHNOLOGIES I USE
@@ -42,14 +42,14 @@ export default function TechMarqueeSection() {
         {/* Bottom Strip */}
         <div className="absolute w-[180%] left-1/2 -translate-x-1/2 top-[40%] rotate-[4deg] z-10">
           <div className="bg-zinc-800 py-4">
-            <MarqueeRow text={strip1} speed={10} />
+            <MarqueeRow text={strip1} speed={34} />
           </div>
         </div>
 
         {/* Top Strip */}
         <div className="absolute w-[180%] left-1/2 -translate-x-1/2 top-[36%] -rotate-[4deg] z-20">
           <div className="bg-red-600 py-4">
-            <MarqueeRow text={strip2} speed={10} />
+            <MarqueeRow text={strip2} speed={24} />
           </div>
         </div>
       </div>

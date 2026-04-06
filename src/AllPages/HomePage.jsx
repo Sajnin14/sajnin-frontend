@@ -16,7 +16,7 @@ export default function HomePage() {
       <SimpleAboutSection />
       <TechMarqueeSection />
       <SkillsSection />
-      <SkillsSection2 />
+      {/* <SkillsSection2 /> */}
       <FloatingTargetComponents />
       <Achivements />
       <ProjectsSection />
