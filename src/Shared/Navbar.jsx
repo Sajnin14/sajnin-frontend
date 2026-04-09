@@ -11,13 +11,14 @@ const navLink = [
     name: 'About',
     path: '/about',
   },
+  
   {
-    name: 'Skills',
-    path: '/skills',
+    name: 'Projects',
+    path: '/projects',
   },
   {
-    name: 'Works',
-    path: '/works',
+    name: 'Contacts',
+    path: '/contacts',
   },
 ]
 

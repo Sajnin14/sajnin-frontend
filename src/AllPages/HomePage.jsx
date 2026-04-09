@@ -15,17 +15,17 @@ import React from "react";
 export default function HomePage() {
   return (
     <div>
-      {/* <HeroSction /> */}
-      {/* <SimpleAboutSection /> */}
-      {/* <TechMarqueeSection /> */}
-      {/* <SkillsSection /> */}
-      {/* <SkillsTagCloud /> */}
+      <HeroSction />
+      <SimpleAboutSection />
+      <TechMarqueeSection />
+      <SkillsSection />
+      <SkillsTagCloud />
       {/* <SkillsSection2 /> */}
-      {/* <FloatingTargetComponents /> */}
-      {/* <Achivements /> */}
-      {/* <ProjectsSection /> */}
-      {/* <FaqSection /> */}
-      <ScrollPath />
+      <FloatingTargetComponents />
+      <Achivements />
+      <ProjectsSection />
+      <FaqSection />
+      {/* <ScrollPath /> */}
     </div>
   );
 }
