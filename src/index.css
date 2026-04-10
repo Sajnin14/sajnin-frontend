@@ -32,6 +32,10 @@
   --color-border: #334155;
 }
 
-.glowingColor{
+.glowingColor {
   color: rgba(56, 189, 248, 0.3);
+}
+
+.backgroundSkill {
+  background: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #000000 100%);
 }

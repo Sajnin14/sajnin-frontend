@@ -308,15 +308,7 @@ function LoginPage() {
       {/* Left Content Section */}
       <div
         className="relative hidden lg:flex flex-col justify-between bg-linear-to-br from-primary/90 via-primary to-primary/80 p-12 text-primary-foreground">
-        <div className="relative z-20">
-          <div className="flex items-center gap-2 text-lg font-semibold">
-            <div
-              className="size-8 rounded-lg bg-primary-foreground/10 backdrop-blur-sm flex items-center justify-center">
-              <Sparkles className="size-4" />
-            </div>
-            <span>YourBrand</span>
-          </div>
-        </div>
+
 
         <div className="relative z-20 flex items-end justify-center h-125">
           {/* Cartoon Characters */}
@@ -496,19 +488,6 @@ function LoginPage() {
           </div>
         </div>
 
-        <div
-          className="relative z-20 flex items-center gap-8 text-sm text-primary-foreground/60">
-          <a href="#" className="hover:text-primary-foreground transition-colors">
-            Privacy Policy
-          </a>
-          <a href="#" className="hover:text-primary-foreground transition-colors">
-            Terms of Service
-          </a>
-          <a href="#" className="hover:text-primary-foreground transition-colors">
-            Contact
-          </a>
-        </div>
-
         {/* Decorative elements */}
         <div className="absolute inset-0 bg-grid-white/[0.05] bg-size-[20px_20px]" />
         <div
@@ -519,16 +498,16 @@ function LoginPage() {
 
       {/* Right Login Section */}
       <div className="bg-primary flex items-center justify-center p-8">
-        <div className="w-full max-w-105">
+        <div className="w-full">
           {/* form section */}
-          <section className="w-full flex items-center justify-center text-white px-6">
-            <div className="w-full backdrop-blur-md border border-gray-800 rounded-2xl p-4">
+          <section className="w-full flex items-center justify-center text-primaryText px-6">
+            <div className="w-full backdrop-blur-md rounded-2xl p-4">
               <h2 className="text-3xl md:text-4xl font-bold mb-2">Contact Me</h2>
               <p className="text-gray-400 mb-8">
                 Have a project in mind? Let’s build something together.
               </p>
 
-              <form className="grid gap-5">
+              <form className="space-y-4">
                 <div className="w-full flex flex-col gap-2">
                   <label className="text-sm text-gray-400">Full Name</label>
                   <input
@@ -539,7 +518,7 @@ function LoginPage() {
                     onChange={(e) => setEmail(e.target.value)}
                     onFocus={() => setIsTyping(true)}
                     onBlur={() => setIsTyping(false)}
-                    className="px-4 py-3 rounded-lg bg-gray-950 border border-gray-800 focus:border-blue-500 outline-none"
+                    className="w-full px-4 py-3 rounded-lg bg-gray-950 border border-gray-800 focus:border-blue-500 outline-none"
                   />
                 </div>
 
@@ -580,7 +559,7 @@ function LoginPage() {
                   />
                 </div>
 
-                <div className="md:col-span-2 flex justify-end">
+                <div className="mt-4 md:col-span-2 flex justify-end">
                   <button
                     type="submit"
                     className="px-6 py-3 bg-blue-600 hover:bg-blue-700 transition rounded-lg font-medium"

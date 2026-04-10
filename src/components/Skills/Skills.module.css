@@ -2,9 +2,10 @@
 .skills {
     position: relative;
     min-height: 100vh;
-    padding: 80px 20px;
+    width: 100%;
+    padding: 20px;
     background: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #000000 100%);
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .graphContainer {

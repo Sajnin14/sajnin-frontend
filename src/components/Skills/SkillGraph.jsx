@@ -11,12 +11,12 @@ const Fingerprint = () => (
 // Skill Data Structure
 const skillData = {
     id: 'core',
-    label: 'Karthigaiselvam',
+    label: 'Sajnin Saima',
     type: 'core',
     children: [
         {
             id: 'security',
-            label: 'Cyber Security',
+            label: 'Frontend Core',
             type: 'category',
             color: '#00ff88',
             children: [
@@ -34,7 +34,7 @@ const skillData = {
         },
         {
             id: 'dev',
-            label: 'Development',
+            label: 'UI Styling',
             type: 'category',
             color: '#00d4ff',
             children: [

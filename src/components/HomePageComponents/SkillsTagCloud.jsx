@@ -3,8 +3,9 @@ import Container from "../Common/Container";
 import Skills from "../Skills/Skills";
 
 export default function SkillsTagCloud() {
+  
   return (
-    <div className="w-full bg-primary">
+    <div className="w-full backgroundSkill">
       <Container>
         <Skills />
       </Container>

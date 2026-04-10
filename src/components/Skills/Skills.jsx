@@ -28,20 +28,8 @@ const skillCategories = [
 
 const Skills = () => {
     return (
-        <section id="skills" className={styles.skills}>
-            <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-                <div className="section-header" style={{ textAlign: 'center', marginBottom: '20px' }}>
-                    <span className="section-tag">
-                        <Cpu size={14} style={{ marginRight: '6px', display: 'inline-block', verticalAlign: 'text-bottom' }} aria-hidden="true" />
-                        Technical Arsenal
-                    </span>
-                    <h2 className="section-title">
-                        <span className="gradient-text">Skill Matrix</span>
-                    </h2>
-                    <p className="section-subtitle">
-                        Visualizing my core competencies and toolset
-                    </p>
-                </div>
+        <section id="skills" className={'p-8'}>
+            <div className="" style={{ position: 'relative', zIndex: 2 }}>
 
                 {/* Desktop: Complex Graph */}
                 <SkillGraph />
