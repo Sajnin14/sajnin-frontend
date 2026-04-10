@@ -33,7 +33,16 @@ export default function SkillsSection() {
       Events,
     } = Matter;
 
+    // 🔥 FIX: no sleeping (prevents faded/dead physics)
     const engine = Engine.create();
+
+    engine.world.gravity.y = 1;
+
+    // 🔥 stability tuning
+    engine.positionIterations = 10;
+    engine.velocityIterations = 10;
+    engine.constraintIterations = 4;
+
     const world = engine.world;
 
     const container = sceneRef.current;
@@ -49,16 +58,24 @@ export default function SkillsSection() {
         wireframes: false,
         background: "transparent",
         pixelRatio: window.devicePixelRatio,
+        showVelocity: false,
+        showAngleIndicator: false,
       },
     });
+
+    // ✨ CRISP CANVAS FIX
+    render.canvas.style.imageRendering = "crisp-edges";
+    render.canvas.style.transform = "translateZ(0)";
 
     // 🧱 boundaries
     const ground = Bodies.rectangle(width / 2, height + 40, width, 80, {
       isStatic: true,
     });
+
     const leftWall = Bodies.rectangle(-40, height / 2, 80, height, {
       isStatic: true,
     });
+
     const rightWall = Bodies.rectangle(width + 40, height / 2, 80, height, {
       isStatic: true,
     });
@@ -71,25 +88,27 @@ export default function SkillsSection() {
       return ctx.measureText(text).width;
     };
 
-    // 💊 create pill
+    // 💊 pill tag
     const createTag = (x, label, color) => {
-      const paddingX = 30;
+      const paddingX = 28;
       const height = 50;
 
       const textWidth = getTextWidth(label);
       const width = textWidth + paddingX * 2;
 
       return Bodies.rectangle(x, -100, width, height, {
-        restitution: 0.6,
-        friction: 0.4,
-        frictionAir: 0.03,
+        friction: 0.2,
+        frictionAir: 0.003, // 🔥 very important (removes faded feel)
+        restitution: 0.55, // lively bounce but controlled
         density: 0.002,
 
+        slop: 0.6, // prevents jitter but stays natural
+
         chamfer: {
-          radius: height / 2, // ✅ perfect pill
+          radius: height / 2,
         },
 
-        inertia: Infinity, // ✅ prevents rotation (clean UI look)
+        inertia: Infinity,
 
         render: {
           fillStyle: color,
@@ -100,19 +119,49 @@ export default function SkillsSection() {
     };
 
     const tags = [
-      createTag(200, "React", "#0015ff"),
-      createTag(600, "JavaScript", "#ffd726"),
-      createTag(320, "TypeScript", "#E794DA"),
-      createTag(200, "Next.js", "#0015ff"),
-      createTag(500, "Framer Motion", "#1f464d"),
-      createTag(700, "Tailwind CSS", "#ff5941"),
-      createTag(850, "Node.js", "orange"),
-      createTag(500, "GSAP", "#1f464d"),
+      // ⚛️ Core Frontend
+      createTag(200, "HTML5", "#F97316"),
+      createTag(600, "CSS3", "#38BDF8"),
+      createTag(320, "JavaScript", "#FBBF24"),
+      createTag(200, "TypeScript", "#60A5FA"),
+
+      // ⚛️ React Ecosystem
+      createTag(500, "React", "#60A5FA"),
+      createTag(700, "Next.js", "#0F172A"),
+      createTag(850, "Redux", "#A78BFA"),
+      createTag(520, "React Query", "#8B5CF6"),
+      createTag(380, "Context API", "#60A5FA"),
+
+      // 🎨 UI / Styling
+      createTag(400, "Tailwind CSS", "#38BDF8"),
+      createTag(650, "Framer Motion", "#A78BFA"),
+
+      // 🎬 Animation
+      createTag(580, "GSAP", "#34D399"),
+      createTag(420, "Lottie", "#10B981"),
+
+      // 🧠 Data / Auth
+      createTag(610, "REST API", "#34D399"),
+      createTag(370, "JWT Auth", "#F97316"),
+
+      // 🛠 Tools
+      createTag(480, "Git", "#111827"),
+      createTag(520, "GitHub", "#0F172A"),
+      createTag(430, "Vite", "#60A5FA"),
+
+      // 🔥 Backend (MERN awareness)
+      createTag(800, "Node.js", "#34D399"),
+      createTag(860, "MongoDB", "#10B981"),
+
+      // ☁️ Deployment / Cloud
+      createTag(900, "Firebase", "#FBBF24"),
+      createTag(920, "Vercel", "#0F172A"),
+      createTag(940, "Netlify", "#38BDF8"),
     ];
 
     World.add(world, [ground, leftWall, rightWall, ...tags]);
 
-    // 🖱️ mouse (scroll-safe)
+    // 🖱️ mouse control
     const mouse = Mouse.create(render.canvas);
 
     mouse.element.removeEventListener("wheel", mouse.mousewheel);
@@ -122,7 +171,7 @@ export default function SkillsSection() {
       mouse,
       constraint: {
         stiffness: 0.4,
-        damping: 0.1,
+        damping: 0.12,
         render: { visible: false },
       },
     });
@@ -131,7 +180,7 @@ export default function SkillsSection() {
 
     render.canvas.style.touchAction = "auto";
 
-    // ✨ PERFECT TEXT ALIGNMENT
+    // ✨ text rendering (clean + sharp)
     Events.on(render, "afterRender", () => {
       const ctx = render.context;
 
@@ -139,20 +188,22 @@ export default function SkillsSection() {
 
       tags.forEach((tag) => {
         const { x, y } = tag.position;
-        const angle = tag.angle;
 
         ctx.translate(x, y);
-        ctx.rotate(angle);
 
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
         ctx.font = "bold 16px sans-serif";
-        ctx.fillStyle = "#fff";
+
+        // ✨ FIX: remove faded look by adding subtle contrast
+        ctx.fillStyle = "#ffffff";
+        ctx.shadowColor = "rgba(0,0,0,0.25)";
+        ctx.shadowBlur = 4;
+        ctx.shadowOffsetY = 2;
 
         ctx.fillText(tag.label, 0, 0);
 
-        ctx.rotate(-angle);
-        ctx.translate(-x, -y);
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
       });
 
       ctx.restore();
@@ -172,23 +223,24 @@ export default function SkillsSection() {
   }, [isVisible]);
 
   return (
-    <div className="w-full min-h-150 flex flex-col items-center">
-      <h2 className="pt-20 text-6xl text-black italic">fancy</h2>
-      <p className="pt-4 text-xl text-black">
-        components made with:
+    <div className="w-full bg-primary min-h-150 flex flex-col items-center">
+      <h2 className="pt-8 text-6xl text-primaryText">Expertise</h2>
+
+      <p className="pt-4 text-xl text-secondaryText">
+        The tools, technologies, and skills I use to build modern web experiences
       </p>
 
+      <div ref={sceneRef} className="w-full h-110 overflow-hidden" />
 
-      <div
-        ref={sceneRef}
-        className="w-full h-100 overflow-hidden"
-      />
-
-      <Marquee reverse pauseOnHover className="w-full! bg-gray-200  [--duration:20s]">
-        <div className="h-10 bg-gray-200 flex items-center justify-center whitespace-nowrap">
-          <p>Skills I have expertise in..</p>
-          <p>Skills I have expertise in..</p>
-          <p>Skills I have expertise in..</p>
+      <Marquee
+        reverse
+        pauseOnHover
+        className="w-full! bg-bgCard [--duration:20s]"
+      >
+        <div className="h-10 text-highlight flex items-center justify-center whitespace-nowrap">
+          <p>Skills I have expertise in...</p>
+          <p>Skills I have expertise in...</p>
+          <p>Skills I have expertise in...</p>
         </div>
       </Marquee>
     </div>

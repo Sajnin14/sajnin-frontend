@@ -18,10 +18,10 @@ const MarqueeRow = ({ text, speed }) => {
         }}
       >
         {/* Seamless loop */}
-        <span className="flex text-white text-lg font-medium tracking-wide">
+        <span className="flex text-primaryText text-lg font-medium tracking-wide">
           {text.repeat(4)}
         </span>
-        <span className="flex text-white text-lg font-medium tracking-wide">
+        <span className="flex text-primaryText text-lg font-medium tracking-wide">
           {text.repeat(4)}
         </span>
       </motion.div>
@@ -31,11 +31,11 @@ const MarqueeRow = ({ text, speed }) => {
 
 export default function TechMarqueeSection() {
   return (
-    <div className="bg-black text-white min-h-screen flex flex-col justify-center">
+    <div className="bg-primary py-10 text-primaryText flex flex-col justify-center">
       {/* Top Label */}
-      <p className="text-gray-500 text-xs tracking-widest mb-10">
+      {/* <p className="text-gray-500 text-xs tracking-widest mb-10">
         VARIOUS TECHNOLOGIES I USE
-      </p>
+      </p> */}
 
       {/* Marquee Container */}
       <div className="relative h-52 flex items-center justify-center overflow-hidden">
@@ -55,21 +55,21 @@ export default function TechMarqueeSection() {
       </div>
 
       {/* Bottom Content */}
-      <div className="mt-24 grid grid-cols-3 items-start text-sm">
+      <div className="mt-24h hidden grid-cols-3 items-start text-sm">
         {/* Left */}
-        <div className="text-gray-400">0/2</div>
+        {/* <div className="text-gray-400">0/2</div> */}
 
         {/* Center */}
-        <div className="text-center">
+        {/* <div className="text-center">
           <h3 className="text-white font-semibold mb-2">Recent Projects</h3>
           <p className="text-gray-400 text-xs max-w-xs mx-auto">
             Most of time is spent building web products and crafting smooth user
             experiences with modern technologies.
           </p>
-        </div>
+        </div> */}
 
         {/* Right */}
-        <div className="text-right text-gray-400">Creative Development</div>
+        {/* <div className="text-right text-gray-400">Creative Development</div> */}
       </div>
     </div>
   );

@@ -22,11 +22,16 @@
 }
 
 @theme {
-  --color-primary: #0F111A;
-  --color-card: #1A1C29;
-  --color-text: #E5E5E5;
-  --color-button: #7F5AF0;
-  --color-seondary-text: #A1A1AA;
-  --color-color-hover: #A78BFA;
-  --color-border: #332A70;
+  --color-primary: #0F172A;
+  --color-bgCard: #1E293B;
+  --color-primaryText: #E2E8F0;
+  --color-secondaryText: #94A3B8;
+  --color-highlight: #38BDF8;
+  --color-colorButton: #7F5AF0;
+  --color-buttonHover: #0EA5E9;
+  --color-border: #334155;
+}
+
+.glowingColor{
+  color: rgba(56, 189, 248, 0.3);
 }
