@@ -11,9 +11,11 @@
 .graphContainer {
     position: relative;
     width: 100%;
-    height: 700px; /* Reduced from 800px for better fit on common large screens */
+    height: 700px;
+    /* Reduced from 800px for better fit on common large screens */
     margin: 0 auto;
-    max-width: 1400px; /* Increased to allow more horizontal breathing room */
+    max-width: 1400px;
+    /* Increased to allow more horizontal breathing room */
 }
 
 /* SVG Connections */

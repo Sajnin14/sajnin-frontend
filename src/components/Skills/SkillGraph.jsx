@@ -15,51 +15,48 @@ const skillData = {
     type: 'core',
     children: [
         {
-            id: 'security',
+            id: 'frontend-core',
             label: 'Frontend Core',
             type: 'category',
             color: '#00ff88',
             children: [
-                { id: 'pentest', label: 'Pentesting', type: 'skill' },
-                { id: 'websec', label: 'Web App Security', type: 'skill' },
-                { id: 'network', label: 'Network Security', type: 'skill' },
-                { id: 'malware', label: 'Malware Analysis', type: 'skill' },
-                { id: 'reveng', label: 'Reverse Engineering', type: 'skill' },
-                { id: 'burp', label: 'Burp Suite', type: 'skill' },
-                { id: 'meta', label: 'Metasploit', type: 'skill' },
-                { id: 'nmap', label: 'Nmap', type: 'skill' },
-                { id: 'wireshark', label: 'Wireshark', type: 'skill' },
-                { id: 'nessus', label: 'Nessus', type: 'skill' },
+                { id: 'html', label: 'HTML5', type: 'skill' },
+                { id: 'css', label: 'CSS3', type: 'skill' },
+                { id: 'js', label: 'JavaScript (ES6+)', type: 'skill' },
+                { id: 'dom', label: 'DOM Manipulation', type: 'skill' },
+                { id: 'responsive', label: 'Responsive Design', type: 'skill' },
+                { id: 'accessibility', label: 'Web Accessibility', type: 'skill' },
             ]
         },
         {
-            id: 'dev',
+            id: 'ui-styling',
             label: 'UI Styling',
             type: 'category',
             color: '#00d4ff',
             children: [
-                { id: 'python', label: 'Python', type: 'skill' },
-                { id: 'cpp', label: 'C++', type: 'skill' },
-                { id: 'go', label: 'Go', type: 'skill' },
-                { id: 'bash', label: 'Bash', type: 'skill' },
-                { id: 'js', label: 'JavaScript', type: 'skill' },
-                { id: 'react', label: 'React', type: 'skill' },
-                { id: 'node', label: 'Node.js', type: 'skill' },
-                { id: 'sql', label: 'SQL', type: 'skill' },
-                { id: 'solidity', label: 'Solidity', type: 'skill' },
+                { id: 'tailwind', label: 'Tailwind CSS', type: 'skill' },
+                { id: 'gsap', label: 'GSAP', type: 'skill' },
+                // { id: 'scss', label: 'SCSS / SASS', type: 'skill' },
+                { id: 'mui', label: 'Material UI', type: 'skill' },
+                { id: 'figma', label: 'Figma to Code', type: 'skill' },
+                { id: 'animation', label: 'CSS Animations', type: 'skill' },
+                { id: 'framer', label: 'Framer Motion', type: 'skill' },
             ]
         },
         {
-            id: 'ops',
-            label: 'Ops & Tools',
+            id: 'tools-frameworks',
+            label: 'Tools & Frameworks',
             type: 'category',
             color: '#bd00ff',
             children: [
-                { id: 'linux', label: 'Linux', type: 'skill' },
-                { id: 'git', label: 'Git', type: 'skill' },
-                { id: 'docker', label: 'Docker', type: 'skill' },
-                { id: 'risk', label: 'Risk Management', type: 'skill' },
-                { id: 'incident', label: 'Incident Response', type: 'skill' },
+                { id: 'react', label: 'React.js', type: 'skill' },
+                { id: 'next', label: 'Next.js', type: 'skill' },
+                { id: 'context', label: 'Context API', type: 'skill' },
+                { id: 'redux', label: 'Redux (Basic)', type: 'skill' },
+                { id: 'hookform', label: 'React Hook Form', type: 'skill' },
+                { id: 'axios', label: 'Axios / API Integration', type: 'skill' },
+                { id: 'git', label: 'Git & GitHub', type: 'skill' },
+                { id: 'vite', label: 'Vite', type: 'skill' },
             ]
         }
     ]
@@ -91,19 +88,8 @@ const SkillGraph = () => {
             const startAngle = angle - angleSpan / 2
 
             cat.children.forEach((skill, i2) => {
-                const isSecurity = cat.id === 'security'
-                const isOps = cat.id === 'ops'
-
-                let spreadFactor = 0.7
-                let startOffset = 0.15
-
-                if (isSecurity) {
-                    spreadFactor = 1.03
-                    startOffset = -0.01
-                } else if (isOps) {
-                    spreadFactor = 0.65
-                    startOffset = 0.17
-                }
+                const spreadFactor = 0.85
+                const startOffset = 0.1
 
                 const skillAngle = startAngle + (i2 / (skillCount - 1)) * angleSpan * spreadFactor + (angleSpan * startOffset)
                 const skillRadius = 40 // Increased vertical distance

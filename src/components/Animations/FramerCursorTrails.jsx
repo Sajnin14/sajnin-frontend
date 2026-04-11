@@ -6,7 +6,7 @@ import image3 from "../../assets/Images/code.png";
 import image4 from "../../assets/Images/react.png";
 import Container from "../Common/Container";
 
-const TRAIL_THRESHOLD = 120;
+const TRAIL_THRESHOLD = 80;
 const IMAGE_LIFETIME = 1.5;
 
 const TRAIL_IMAGES = [
@@ -18,57 +18,102 @@ const TRAIL_IMAGES = [
 
 export default function FramerCursorTrails() {
   const [trailImages, setTrailImages] = useState([]);
-  const [lastPosition, setLastPosition] = useState({ x: 0, y: 0 });
-  const sectionRef = useRef(null); // ref to the section
+  const lastPositionRef = useRef({ x: 0, y: 0 });
+  const sectionRef = useRef(null);
+
+  const spawnImage = (x, y, lifetime = IMAGE_LIFETIME) => {
+    const id = Date.now() + Math.random();
+    const randomImage =
+      TRAIL_IMAGES[Math.floor(Math.random() * TRAIL_IMAGES.length)];
+
+    setTrailImages((prev) => [
+      ...prev,
+      {
+        id,
+        x,
+        y,
+        ...randomImage,
+      },
+    ]);
+
+    setTimeout(() => {
+      setTrailImages((prev) => prev.filter((img) => img.id !== id));
+    }, lifetime * 1000);
+  };
 
   useEffect(() => {
-    const handleMouseMove = (e) => {
-      if (!sectionRef.current) return;
+    const section = sectionRef.current;
+    if (!section) return;
 
-      const rect = sectionRef.current.getBoundingClientRect();
+    // 🔹 Intersection Observer to spawn images when visible
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const rect = section.getBoundingClientRect();
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            // Spawn initial images when it comes into view
+            // Making initial ones last a bit longer (3s) for better impact
+            spawnImage(centerX - 180, centerY - 120, 3);
+            spawnImage(centerX + 180, centerY + 120, 3);
+            
+            // Disconnect after first trigger if we only want it once
+            observer.unobserve(section);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(section);
+
+    const handleMouseMove = (e) => {
+      const rect = section.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
 
-      // Only spawn image if mouse is inside the section
       if (x < 0 || y < 0 || x > rect.width || y > rect.height) return;
 
-      const distance = Math.hypot(x - lastPosition.x, y - lastPosition.y);
+      const distance = Math.hypot(
+        x - lastPositionRef.current.x,
+        y - lastPositionRef.current.y
+      );
+
       if (distance > TRAIL_THRESHOLD) {
-        const id = Date.now();
-        const randomImage =
-          TRAIL_IMAGES[Math.floor(Math.random() * TRAIL_IMAGES.length)];
-
-        setTrailImages((prev) => [
-          ...prev,
-          {
-            id,
-            x,
-            y,
-            ...randomImage,
-          },
-        ]);
-        setLastPosition({ x, y });
-
-        setTimeout(() => {
-          setTrailImages((prev) => prev.filter((img) => img.id !== id));
-        }, IMAGE_LIFETIME * 1000);
+        spawnImage(x, y);
+        lastPositionRef.current = { x, y };
       }
     };
 
-    const section = sectionRef.current;
+    const handleMouseEnter = (e) => {
+      const rect = section.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      spawnImage(x, y);
+      lastPositionRef.current = { x, y };
+    };
+
     section.addEventListener("mousemove", handleMouseMove);
-    return () => section.removeEventListener("mousemove", handleMouseMove);
-  }, [lastPosition]);
+    section.addEventListener("mouseenter", handleMouseEnter);
+
+    return () => {
+      observer.disconnect();
+      section.removeEventListener("mousemove", handleMouseMove);
+      section.removeEventListener("mouseenter", handleMouseEnter);
+    };
+  }, []);
 
   return (
     <div
       ref={sectionRef}
-      className="relative w-full h-[500px] bg-black overflow-hidden"
+      className="relative w-full h-125 bg-black overflow-hidden"
     >
       <Container className="relative w-full h-full">
         {/* 🔹 Center Text (Always on top) */}
         <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
-          <p className="text-white text-5xl font-bold">Amsterdam</p>
+          <p className="text-white text-5xl font-bold">ACHIVEMENTS</p>
         </div>
 
         {/* 🔹 Cursor Trail Images */}

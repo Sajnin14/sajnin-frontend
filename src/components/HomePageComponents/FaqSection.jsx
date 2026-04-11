@@ -1,12 +1,12 @@
 import React from "react";
-import { Accordion03 } from "../accordion-03";
 import Container from "../Common/Container";
+import { Accordion05 } from "../accordion-05";
 
 export default function FaqSection() {
   return (
-    <div>
+    <div className="w-full py-14 bg-gray-100">
       <Container>
-        <Accordion03 />
+        <Accordion05 />
       </Container>
     </div>
   );

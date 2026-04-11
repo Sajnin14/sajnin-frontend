@@ -6,9 +6,9 @@ export default function SkillsTagCloud() {
   
   return (
     <div className="w-full backgroundSkill">
-      <Container>
+      {/* <Container> */}
         <Skills />
-      </Container>
+      {/* </Container> */}
     </div>
   );
 }

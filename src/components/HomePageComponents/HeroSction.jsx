@@ -36,9 +36,9 @@ export default function HeroSction() {
   }, []);
 
   return (
-    <div className="w-full bg-primary pt-12 pb-18 overflow-x-hidden">
+    <div className="w-full bg-primary relative z-10 pt-12 pb-18 overflow-x-hidden">
       <Container>
-        <div className="">
+        <div>
           <div
             data-aos="fade-down"
             className="mt-10 flex flex-col gap-4 text-7xl font-bold text-primaryText"

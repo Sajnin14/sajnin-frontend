@@ -22,9 +22,9 @@ export default function HomePage() {
       <TechMarqueeSection />
       <SkillsSection />
       <SkillsTagCloud />
-      <FloatingTargetComponents />
-      <Achivements />
+      {/* <FloatingTargetComponents /> */}
       <ProjectsSection />
+      <Achivements />
       <ContactSection />
       <FaqSection />
       {/* <ScrollPath /> */}

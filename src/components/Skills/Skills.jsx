@@ -28,8 +28,8 @@ const skillCategories = [
 
 const Skills = () => {
     return (
-        <section id="skills" className={'p-8'}>
-            <div className="" style={{ position: 'relative', zIndex: 2 }}>
+        <section id="skills" className={`${styles.skills} p-8`}>
+            <div className="px-40" style={{ position: 'relative', zIndex: 2 }}>
 
                 {/* Desktop: Complex Graph */}
                 <SkillGraph />
