@@ -3,6 +3,7 @@ import FloatingTargetComponents from "@/components/Animations/FloatingTargetComp
 import SkillsSection2 from "@/components/Common/SkillsSection2";
 import Achivements from "@/components/HomePageComponents/Achivements";
 import ContactSection from "@/components/HomePageComponents/ContactSection";
+import ExperiencesSection from "@/components/HomePageComponents/ExperiencesSection";
 import FaqSection from "@/components/HomePageComponents/FaqSection";
 import HeroSction from "@/components/HomePageComponents/HeroSction";
 import ProjectsSection from "@/components/HomePageComponents/ProjectsSection";
@@ -22,6 +23,7 @@ export default function HomePage() {
       <TechMarqueeSection />
       <SkillsSection />
       <SkillsTagCloud />
+      <ExperiencesSection/>
       {/* <FloatingTargetComponents /> */}
       <ProjectsSection />
       <Achivements />

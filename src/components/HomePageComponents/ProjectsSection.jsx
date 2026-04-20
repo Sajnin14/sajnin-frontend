@@ -107,7 +107,7 @@ export default function ProjectsSection() {
 
                 {/* Hover Content */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 pointer-events-auto">
-                  <Link to={'/projects'} className="w-24 h-24 rounded-full bg-primaryText text-primary flex items-center justify-center text-xs">
+                  <Link to={'https://github.com/Sajnin14'} target="_blank" className="w-24 h-24 rounded-full bg-primaryText text-primary flex items-center justify-center text-xs">
                     View
                   </Link>
                 </div>
