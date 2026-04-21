@@ -223,7 +223,7 @@ export default function SkillsSection() {
   }, [isVisible]);
 
   return (
-    <div className="w-full bg-primary min-h-150 flex flex-col items-center">
+    <div id="skills" className="w-full bg-primary min-h-150 flex flex-col items-center">
       <h2 className="pt-8 text-6xl text-primaryText">Expertise</h2>
 
       <p className="pt-4 text-xl text-secondaryText">

@@ -3,7 +3,7 @@ import { Component } from '../animated-characters-login-page';
 
 function ContactSection() {
     return (
-        <div>
+        <div id="contact">
             <Component />
         </div>
     );

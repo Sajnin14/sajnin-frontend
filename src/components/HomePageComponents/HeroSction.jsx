@@ -36,7 +36,7 @@ export default function HeroSction() {
   }, []);
 
   return (
-    <div className="w-full bg-primary relative z-10 pt-12 pb-18 overflow-x-hidden">
+    <div className="w-full bg-primary relative z-10 pt-12 pb-18 overflow-hidden">
       <Container>
         <div>
           <div

@@ -4,7 +4,7 @@ import BlurScrollText from "../Animations/BlurScrollText";
 
 export default function SimpleAboutSection() {
   return (
-    <div className="w-full bg-primary pt-0 pb-10">
+    <div id="about" className="w-full bg-primary pt-0 pb-10">
       <Container>
         <div className="space-y-6">
           <BlurScrollText

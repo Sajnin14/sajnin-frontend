@@ -15,7 +15,7 @@ const experiences = [
 
 const ExperiencesSection = () => {
     return (
-        <section className="w-full bg-primary py-24 md:py-32 relative overflow-hidden" id="experience">
+        <section className="w-full bg-primary py-24 md:py-32 relative overflow-hidden" id="my-experience">
             <Container>
                 <div className="flex flex-col gap-16">
                     {/* Section Heading */}

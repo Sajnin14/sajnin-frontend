@@ -61,7 +61,7 @@ export default function ProjectsSection() {
   const [modal, setModal] = useState({ active: false, index: 0 });
 
   return (
-    <div className="bg-primary py-16 overflow-hidden">
+    <div id="selected-projects" className="bg-primary py-16 overflow-hidden">
       <div className="mx-auto max-w-7xl px-5">
         <div className="flex justify-between">
           {/* <h2 className="text-6xl font-semibold">Services.</h2> */}
