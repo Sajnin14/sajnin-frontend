@@ -70,7 +70,7 @@ export function Accordion05() {
         {items.map((item) => (
           <AccordionItem value={item.id} key={item.id} className="last:border-b">
             <AccordionTrigger
-              className="text-left pl-6 md:pl-14 overflow-hidden text-foreground/40 duration-200 hover:no-underline cursor-pointer -space-y-6 data-[state=open]:space-y-0 data-[state=open]:text-primary [&>svg]:hidden">
+              className="text-left pl-6 md:pl-14 overflow-hidden text-secondaryText duration-200 hover:no-underline cursor-pointer -space-y-6 data-[state=open]:space-y-0 data-[state=open]:text-primaryText [&>svg]:hidden">
               <div className="flex flex-1 items-start gap-4">
                 <p className="text-xs">{item.id}</p>
                 <h1 className={`uppercase relative text-3xl md:text-4xl`}>
@@ -79,7 +79,7 @@ export function Accordion05() {
               </div>
             </AccordionTrigger>
 
-            <AccordionContent className="text-muted-foreground text-base pb-6 pl-6 md:px-20">
+            <AccordionContent className="text-secondaryText text-base pb-6 pl-6 md:px-20">
               {item.content}
             </AccordionContent>
           </AccordionItem>

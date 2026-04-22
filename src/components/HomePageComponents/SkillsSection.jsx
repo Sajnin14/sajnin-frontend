@@ -235,12 +235,12 @@ export default function SkillsSection() {
       <Marquee
         reverse
         pauseOnHover
-        className="w-full! bg-bgCard [--duration:20s]"
+        className="w-full! bg-bgCard [--duration:40s]"
       >
-        <div className="h-10 text-highlight flex items-center justify-center whitespace-nowrap">
-          <p>Skills I have expertise in...</p>
-          <p>Skills I have expertise in...</p>
-          <p>Skills I have expertise in...</p>
+        <div className="h-12 text-gray-500 flex items-center justify-center whitespace-nowrap text-4xl font-bold uppercase italic">
+          <p> I turn ideas into interactive digital experiences using React and modern web technologies. </p>
+          <p> I turn ideas into interactive digital experiences using React and modern web technologies. </p>
+          <p> I turn ideas into interactive digital experiences using React and modern web technologies. </p>
         </div>
       </Marquee>
     </div>

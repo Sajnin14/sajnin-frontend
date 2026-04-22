@@ -3,6 +3,8 @@ import { motion } from "motion/react";
 import Container from "../Common/Container";
 import { AllPhotos } from "../Common/AllPhotos";
 
+import sectionFlower from "../../assets/SVG/section-flower.svg";
+
 // Experience data
 const experiences = [
     {
@@ -31,9 +33,9 @@ const ExperiencesSection = () => {
                             <motion.div
                                 animate={{ rotate: 360 }}
                                 transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                                className="text-highlight"
+                                className="w-8 h-8 flex items-center justify-center"
                             >
-                                <img src={AllPhotos?.flower} alt="flower" className="w-14 h-14" />
+                                <img src={sectionFlower} alt="flower" className="w-full h-full object-contain" />
                             </motion.div>
 
                             <h2 className="text-4xl md:text-6xl font-bold tracking-tighter uppercase leading-none flex items-center gap-4 bg-clip-text text-transparent bg-linear-to-r from-primaryText via-primaryText to-highlight">

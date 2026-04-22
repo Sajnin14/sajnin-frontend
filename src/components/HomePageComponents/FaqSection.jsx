@@ -4,7 +4,7 @@ import { Accordion05 } from "../accordion-05";
 
 export default function FaqSection() {
   return (
-    <div className="w-full py-14 bg-gray-100">
+    <div className="w-full py-14 bg-darkPrimary">
       <Container>
         <Accordion05 />
       </Container>
