@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import CircularText from "../Animations/CircularText";
 import { Link } from "react-router-dom";
+import { AllPhotos } from "../Common/AllPhotos";
 
 export default function ProjectsSection() {
   const containerRef = useRef(null);
@@ -38,23 +39,30 @@ export default function ProjectsSection() {
     mouseY.set(0);
   };
 
-
   const projects = [
     {
       color: "#000000",
-      title: "Freight Transportation",
+      title: "KTA+ (LMS Project)",
+      image: AllPhotos.kale,
+      liveLink: "https://kalekneale-react-frontend.vercel.app/auth/register",
     },
     {
       color: "#8C8C8C",
-      title: "Last-Mile Delivery",
+      title: "e-Lesson Academy",
+      image: AllPhotos.elesson,
+      liveLink: "https://elesson.academy/",
     },
     {
       color: "#EFE8D3",
-      title: "Supply Chain Optimization",
+      title: "Carrier Direct",
+      image: AllPhotos.carrier,
+      liveLink: "https://carrierdirect.io/",
     },
     {
       color: "#706D63",
-      title: "24/7 Customer Support",
+      title: "Notary Pro",
+      image: AllPhotos.notary,
+      liveLink: "https://notary-react-frontend.thesyndicates.team/",
     },
   ];
 
@@ -107,7 +115,11 @@ export default function ProjectsSection() {
 
                 {/* Hover Content */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 pointer-events-auto">
-                  <Link to={'https://github.com/Sajnin14'} target="_blank" className="w-24 h-24 rounded-full bg-primaryText text-primary flex items-center justify-center text-xs">
+                  <Link
+                    to={"https://github.com/Sajnin14"}
+                    target="_blank"
+                    className="w-24 h-24 rounded-full bg-primaryText text-primary flex items-center justify-center text-xs"
+                  >
                     View
                   </Link>
                 </div>
@@ -115,9 +127,10 @@ export default function ProjectsSection() {
             </div>
           </div>
 
-
           <p className="max-w-md  py-10 text-secondaryText">
-            Each project is built to address practical challenges, combining clean design, seamless interaction, and modern technologies to create fast, scalable, and user-friendly applications.
+            Each project is built to address practical challenges, combining
+            clean design, seamless interaction, and modern technologies to
+            create fast, scalable, and user-friendly applications.
           </p>
         </div>
 
@@ -128,6 +141,7 @@ export default function ProjectsSection() {
                 key={index}
                 index={index}
                 title={project.title}
+                liveLink={project.liveLink}
                 setModal={setModal}
               />
             ))}
@@ -140,9 +154,10 @@ export default function ProjectsSection() {
   );
 }
 
-function Project({ index, title, setModal }) {
+function Project({ index, title, setModal, liveLink }) {
   return (
     <div
+      onClick={() => window.open(liveLink, "_blank", "noopener,noreferrer")}
       className="group flex w-full cursor-pointer text-primaryText items-center justify-between border-t border-gray-300 px-10 py-10 transition-all duration-200 last:border-b hover:opacity-50"
       onMouseEnter={() => setModal({ active: true, index })}
       onMouseLeave={() => setModal({ active: false, index })}
@@ -246,7 +261,7 @@ function Modal({ modal, projects }) {
               style={{ backgroundColor: project.color }}
             >
               <img
-                src={`https://images.cnippet.dev/image/upload/v1770400411/img_1700${idx + 1}.jpg`}
+                src={project?.image}
                 alt="project"
                 className="w-75 object-contain"
               />

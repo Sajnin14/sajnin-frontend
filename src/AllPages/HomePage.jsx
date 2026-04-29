@@ -26,8 +26,8 @@ export default function HomePage() {
       <ExperiencesSection/>
       {/* <FloatingTargetComponents /> */}
       <ProjectsSection />
-      <Achivements />
-      <ContactSection />
+      {/* <Achivements /> */}
+      {/* <ContactSection /> */}
       <FaqSection />
       {/* <ScrollPath /> */}
     </div>
